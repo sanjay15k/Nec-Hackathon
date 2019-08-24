@@ -1,11 +1,7 @@
 package com.nec.hackathon.interconnectedtransportportalapp;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -21,7 +17,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -29,10 +24,10 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class AllBusesList extends FragmentActivity implements OnMapReadyCallback{
+public class BookTicketWithBusLocation extends FragmentActivity implements OnMapReadyCallback {
+
     private GoogleMap googleMap;
 
     @Override
@@ -43,7 +38,7 @@ public class AllBusesList extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_buses_list);
+        setContentView(R.layout.activity_book_ticket_with_bus_location);
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -51,7 +46,7 @@ public class AllBusesList extends FragmentActivity implements OnMapReadyCallback
         GoogleDirection.withServerKey("AIzaSyBGxDbLF0b_MyKBNJeBPt8TpGk17dC62xs")
                 .from(new LatLng(28.6248301, 77.0652972))
                 .to(new LatLng(28.6082819, 77.0350079))
-                .transportMode(TransportMode.DRIVING)
+                .transportMode(TransportMode.TRANSIT)
                 .execute(new DirectionCallback() {
                     @Override
                     public void onDirectionSuccess(Direction direction, String rawBody) {
@@ -59,7 +54,7 @@ public class AllBusesList extends FragmentActivity implements OnMapReadyCallback
                             Route route = direction.getRouteList().get(0);
                             Leg leg = route.getLegList().get(0);
                             ArrayList<LatLng> sectionPositionList = leg.getSectionPoint();
-                            System.out.println(sectionPositionList);
+                            System.out.println("################ Marking LIST  "+sectionPositionList);
                             for (int i=0; i<sectionPositionList.size(); i++) {
                                 LatLng position = sectionPositionList.get(i);
                                 if(i==0 || i==sectionPositionList.size()-1) {
