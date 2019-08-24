@@ -18,14 +18,25 @@ import java.util.ArrayList;
 public class SelectSrcDest extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Spinner destinationSpinner;
+    private Spinner sourceSpinner;
+    private ArrayList<String> source;
     private ArrayList<String> destination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_src_dest);
+
+        sourceSpinner = findViewById(R.id.sourceSpinner);
+
         Button searchBuses = findViewById(R.id.searchBuses);
         destinationSpinner = findViewById(R.id.destinationSpinner);
+
+        source = new ArrayList<>();
+        source.add("NSIT, Delhi");
+        source.add("Madhu Vihar");
+        source.add("Dwarka Sec-2 & 3");
+        source.add("Janakpuri District Center");
 
         destination = new ArrayList<>();
         destination.add("Dwarka Mor Metro");
@@ -33,8 +44,20 @@ public class SelectSrcDest extends AppCompatActivity implements AdapterView.OnIt
         destination.add("Uttam Nagar");
         destination.add("Tilak Nagar");
 
-        destinationSpinner.setOnItemSelectedListener(this);
+        sourceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sourceSpinner.setId(i);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, source);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sourceSpinner.setAdapter(adapter);
 
+        destinationSpinner.setOnItemSelectedListener(this);
         ArrayAdapter<String> aa = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, destination);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         destinationSpinner.setAdapter(aa);
@@ -42,20 +65,15 @@ public class SelectSrcDest extends AppCompatActivity implements AdapterView.OnIt
         searchBuses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String src = source.get(sourceSpinner.getSelectedItemPosition());
                 final String dest = destination.get(destinationSpinner.getSelectedItemPosition());
-                final Intent i = new Intent(SelectSrcDest.this, BookTicketWithBusLocation.class);
+                final Intent i = new Intent(SelectSrcDest.this, BusesList.class);
+                i.putExtra("source", src);
                 i.putExtra("destination", dest);
-                final ProgressDialog pd = new ProgressDialog(SelectSrcDest.this);
-                pd.setMessage("Searching..");
-                pd.show();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        pd.hide();
-                        System.out.println("**** Destination selected : "+dest);
-                        startActivity(i);
-                    }
-                }, 3000);
+
+                CommonUtils commonUtils = new CommonUtils();
+                commonUtils.waitAndNavigate(SelectSrcDest.this, i, "Searching", 3000);
+
             }
         });
     }

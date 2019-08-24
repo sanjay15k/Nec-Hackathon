@@ -2,8 +2,11 @@ package com.nec.hackathon.interconnectedtransportportalapp;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.akexorcist.googledirection.DirectionCallback;
 import com.akexorcist.googledirection.GoogleDirection;
@@ -43,10 +46,23 @@ public class BookTicketWithBusLocation extends FragmentActivity implements OnMap
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        Button bookNowButton = findViewById(R.id.bookNowButton);
+
+        bookNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BookTicketWithBusLocation.this, PayableAmountScreen.class);
+
+                CommonUtils commonUtils = new CommonUtils();
+                commonUtils.waitAndNavigate(BookTicketWithBusLocation.this, intent, "Please wait redirecting", 2000);
+
+            }
+        });
+
         GoogleDirection.withServerKey("AIzaSyBGxDbLF0b_MyKBNJeBPt8TpGk17dC62xs")
                 .from(new LatLng(28.6248301, 77.0652972))
                 .to(new LatLng(28.6082819, 77.0350079))
-                .transportMode(TransportMode.TRANSIT)
+                .transportMode(TransportMode.DRIVING)
                 .execute(new DirectionCallback() {
                     @Override
                     public void onDirectionSuccess(Direction direction, String rawBody) {

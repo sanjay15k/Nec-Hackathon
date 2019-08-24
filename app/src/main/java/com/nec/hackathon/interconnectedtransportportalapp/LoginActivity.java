@@ -92,6 +92,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(LoginActivity.this, SelectSrcDest.class);
+                CommonUtils commonUtils = new CommonUtils();
+                commonUtils.saveDataToSP(LoginActivity.this, mEmailView.getText().toString(), mPasswordView.getText().toString());
                 startActivity(i);
 //                attemptLogin();
             }

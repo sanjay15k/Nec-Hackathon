@@ -33,8 +33,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".BookTicketWithBusLocation"></activity>
-        <activity android:name=".SelectSrcDest" />
+
+        <activity
+            android:name=".SuccessfullBookingScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".PayableAmountScreen"
+            android:label="Entertainment facilities" />
+        <activity
+            android:name=".BusesList"
+            android:label="Bus Timings" />
+        <activity
+            android:name=".BookTicketWithBusLocation"
+            android:label="Book Now" />
+        <activity
+            android:name=".SelectSrcDest"
+            android:label="Enter destination" />
 
         <uses-library android:name="com.google.android.maps" />
 
