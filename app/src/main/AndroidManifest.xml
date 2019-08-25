@@ -35,8 +35,14 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
+            android:name=".vrFeatureAccess"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="landscape"/>
+
+        <activity android:name=".ArVrModeSelect" />
+        <activity
             android:name=".SuccessfullBookingScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".PayableAmountScreen"
             android:label="Entertainment facilities" />

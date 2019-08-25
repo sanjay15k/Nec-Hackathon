@@ -76,6 +76,16 @@ public class SelectSrcDest extends AppCompatActivity implements AdapterView.OnIt
 
             }
         });
+
+        Button startJourneyBtn = findViewById(R.id.startJourneyBtn);
+        startJourneyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectSrcDest.this, ArVrModeSelect.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
