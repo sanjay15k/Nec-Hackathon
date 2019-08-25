@@ -1,0 +1,188 @@
+[
+  {
+    "arrival_time": "06:45:00",
+    "stop_name": "Nazafgarh Terminal",
+    "stop_lat": 28.61465,
+    "stop_lon": 76.9779
+  },
+  {
+    "arrival_time": "07:15:08",
+    "stop_name": "Rewla Taj Pur More",
+    "stop_lat": 28.577467,
+    "stop_lon": 76.996717
+  },
+  {
+    "arrival_time": "07:26:24",
+    "stop_name": "Chhawla Village",
+    "stop_lat": 28.5613,
+    "stop_lon": 77.0021
+  },
+  {
+    "arrival_time": "07:36:25",
+    "stop_name": "BSF Campus Chhawla",
+    "stop_lat": 28.547717,
+    "stop_lon": 77.009283
+  },
+  {
+    "arrival_time": "07:50:24",
+    "stop_name": "Bamnoli Crossing",
+    "stop_lat": 28.539267,
+    "stop_lon": 77.029983
+  },
+  {
+    "arrival_time": "07:53:31",
+    "stop_name": "Haryana Pottries",
+    "stop_lat": 28.5383,
+    "stop_lon": 77.03518299999999
+  },
+  {
+    "arrival_time": "06:49:30",
+    "stop_name": "Health Center",
+    "stop_lat": 28.614116999999997,
+    "stop_lon": 76.98531700000001
+  },
+  {
+    "arrival_time": "08:06:03",
+    "stop_name": "Bijwasan Railway Crossing",
+    "stop_lat": 28.533133000000003,
+    "stop_lon": 77.055717
+  },
+  {
+    "arrival_time": "08:08:24",
+    "stop_name": "Shri Golok Dham Bijwasan School",
+    "stop_lat": 28.53355,
+    "stop_lon": 77.05968299999999
+  },
+  {
+    "arrival_time": "08:26:15",
+    "stop_name": "Kapashera Crossing",
+    "stop_lat": 28.5313,
+    "stop_lon": 77.08815
+  },
+  {
+    "arrival_time": "08:28:37",
+    "stop_name": "Samalkha X-ing",
+    "stop_lat": 28.534316999999998,
+    "stop_lon": 77.090233
+  },
+  {
+    "arrival_time": "08:48:05",
+    "stop_name": "Rangpuri",
+    "stop_lat": 28.542533000000002,
+    "stop_lon": 77.117633
+  },
+  {
+    "arrival_time": "08:53:54",
+    "stop_name": "Mahipal Pur Crossing",
+    "stop_lat": 28.548083000000002,
+    "stop_lon": 77.12526700000001
+  },
+  {
+    "arrival_time": "09:14:22",
+    "stop_name": "APS Colony",
+    "stop_lat": 28.574833,
+    "stop_lon": 77.141583
+  },
+  {
+    "arrival_time": "09:17:40",
+    "stop_name": "Arjun Path",
+    "stop_lat": 28.575266999999997,
+    "stop_lon": 77.147183
+  },
+  {
+    "arrival_time": "09:20:17",
+    "stop_name": "Subroto Park (Arjun Path)",
+    "stop_lat": 28.574316999999997,
+    "stop_lon": 77.151517
+  },
+  {
+    "arrival_time": "09:24:49",
+    "stop_name": "Shani Mandir / Vasant Village",
+    "stop_lat": 28.57572,
+    "stop_lon": 77.159058
+  },
+  {
+    "arrival_time": "09:30:43",
+    "stop_name": "Swami Malai Mandir",
+    "stop_lat": 28.568467,
+    "stop_lon": 77.164833
+  },
+  {
+    "arrival_time": "09:34:52",
+    "stop_name": "R K Puram Sec-5",
+    "stop_lat": 28.563033,
+    "stop_lon": 77.16825
+  },
+  {
+    "arrival_time": "09:38:26",
+    "stop_name": "Vasant Vihar Depot",
+    "stop_lat": 28.558916999999997,
+    "stop_lon": 77.172067
+  },
+  {
+    "arrival_time": "09:39:24",
+    "stop_name": "Munirka Village",
+    "stop_lat": 28.55885,
+    "stop_lon": 77.17371700000001
+  },
+  {
+    "arrival_time": "09:41:16",
+    "stop_name": "R K Puram Nab",
+    "stop_lat": 28.561020000000003,
+    "stop_lon": 77.17573
+  },
+  {
+    "arrival_time": "09:43:16",
+    "stop_name": "RK Puram Sec 1",
+    "stop_lat": 28.563000000000002,
+    "stop_lon": 77.1783
+  },
+  {
+    "arrival_time": "09:44:31",
+    "stop_name": "RK Puram Sec-3",
+    "stop_lat": 28.5643,
+    "stop_lon": 77.1798
+  },
+  {
+    "arrival_time": "09:49:52",
+    "stop_name": "Mohammadpur Village",
+    "stop_lat": 28.564883000000002,
+    "stop_lon": 77.188917
+  },
+  {
+    "arrival_time": "09:51:58",
+    "stop_name": "Bhikaji Cama Place",
+    "stop_lat": 28.568,
+    "stop_lon": 77.1893
+  },
+  {
+    "arrival_time": "09:53:39",
+    "stop_name": "Africa Avenue",
+    "stop_lat": 28.56965,
+    "stop_lon": 77.19145
+  },
+  {
+    "arrival_time": "09:56:02",
+    "stop_name": "Nauroji Nagar",
+    "stop_lat": 28.569633000000003,
+    "stop_lon": 77.195533
+  },
+  {
+    "arrival_time": "10:01:14",
+    "stop_name": "SJ Hospital",
+    "stop_lat": 28.5697,
+    "stop_lon": 77.20438299999999
+  },
+  {
+    "arrival_time": "10:06:19",
+    "stop_name": "Kidwai Nagar",
+    "stop_lat": 28.5757,
+    "stop_lon": 77.2097
+  },
+  {
+    "arrival_time": "10:10:06",
+    "stop_name": "Safdurjung Terminal",
+    "stop_lat": 28.579475,
+    "stop_lon": 77.21450899999999
+  }
+]

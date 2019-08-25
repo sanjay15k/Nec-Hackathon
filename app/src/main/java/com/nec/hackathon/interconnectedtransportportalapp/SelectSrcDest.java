@@ -33,12 +33,16 @@ public class SelectSrcDest extends AppCompatActivity implements AdapterView.OnIt
         destinationSpinner = findViewById(R.id.destinationSpinner);
 
         source = new ArrayList<>();
+        source.add("R K Puram Sec-5");
         source.add("NSIT, Delhi");
         source.add("Madhu Vihar");
         source.add("Dwarka Sec-2 & 3");
+        source.add("Kendriya Terminal");
         source.add("Janakpuri District Center");
 
         destination = new ArrayList<>();
+        destination.add("Mohammadpur Village");
+        destination.add("APS Colony");
         destination.add("Dwarka Mor Metro");
         destination.add("Dhaula Kuan");
         destination.add("Uttam Nagar");

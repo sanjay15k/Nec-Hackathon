@@ -20,11 +20,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.snackbar.Snackbar;
+import com.nec.hackathon.interconnectedtransportportalapp.Model.BusInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,8 @@ public class BookTicketWithBusLocation extends FragmentActivity implements OnMap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_ticket_with_bus_location);
 
+        ArrayList<LatLng> midStops = (ArrayList<LatLng>) getIntent().getSerializableExtra("midStops");
+
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -52,16 +56,20 @@ public class BookTicketWithBusLocation extends FragmentActivity implements OnMap
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BookTicketWithBusLocation.this, PayableAmountScreen.class);
-
                 CommonUtils commonUtils = new CommonUtils();
                 commonUtils.waitAndNavigate(BookTicketWithBusLocation.this, intent, "Please wait redirecting", 2000);
 
             }
         });
 
+        double srcX = midStops.get(0).latitude;
+        double srcY = midStops.get(0).longitude;
+        double destX = midStops.get(midStops.size()-1).latitude;
+        double destY = midStops.get(midStops.size()-1).longitude;
+
         GoogleDirection.withServerKey("AIzaSyBGxDbLF0b_MyKBNJeBPt8TpGk17dC62xs")
-                .from(new LatLng(28.6248301, 77.0652972))
-                .to(new LatLng(28.6082819, 77.0350079))
+                .from(new LatLng(srcX, srcY))
+                .to(new LatLng(destX, destY))
                 .transportMode(TransportMode.DRIVING)
                 .execute(new DirectionCallback() {
                     @Override
@@ -71,13 +79,10 @@ public class BookTicketWithBusLocation extends FragmentActivity implements OnMap
                             Leg leg = route.getLegList().get(0);
                             ArrayList<LatLng> sectionPositionList = leg.getSectionPoint();
                             System.out.println("################ Marking LIST  "+sectionPositionList);
-                            for (int i=0; i<sectionPositionList.size(); i++) {
+                            for (int i=1; i<sectionPositionList.size()-1; i++) {
                                 LatLng position = sectionPositionList.get(i);
-                                if(i==0 || i==sectionPositionList.size()-1) {
-                                    googleMap.addMarker(new MarkerOptions().position(position));
-                                }
+                                googleMap.addMarker(new MarkerOptions().position(position).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
                             }
-
                             List<Step> stepList = leg.getStepList();
                             ArrayList<PolylineOptions> polylineOptionList = DirectionConverter.createTransitPolyline(getApplicationContext(), stepList, 5, Color.RED, 3, Color.BLUE);
                             for (PolylineOptions polylineOption : polylineOptionList) {
